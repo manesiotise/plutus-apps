@@ -169,7 +169,6 @@ library
         playground-common -any,
         plutus-ledger-api -any,
         prettyprinter >=1.1.0.1,
-        purescript-bridge -any,
         quickcheck-instances -any,
         row-types -any,
         servant -any,
