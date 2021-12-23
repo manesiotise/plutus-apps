@@ -50,6 +50,89 @@ common lang
     if flag(defer-plugin-errors)
         ghc-options: -fplugin-opt PlutusTx.Plugin:defer-errors
 
+library plutus-pab-psgenerator
+    import:             lang
+    ghc-options:
+        -Wunused-packages
+
+    exposed-modules:
+        Plutus.PAB.Run.PSGenerator
+    hs-source-dirs:     src
+    build-depends:
+        , freer-extras
+        , playground-common
+        , plutus-chain-index-core
+        , plutus-contract
+        , plutus-pab
+        , plutus-ledger
+        , plutus-ledger-constraints
+        , plutus-tx
+        , plutus-tx-plugin
+
+    build-depends:
+        QuickCheck -any,
+        aeson -any,
+        aeson-pretty -any,
+        async -any,
+        base >=4.7 && <5,
+        beam-core -any,
+        beam-migrate -any,
+        beam-sqlite -any,
+        bytestring -any,
+        cardano-api -any,
+        cardano-slotting -any,
+        cardano-wallet-core -any,
+        containers -any,
+        contra-tracer -any,
+        cryptonite -any,
+        data-default -any,
+        exceptions -any,
+        freer-simple -any,
+        generic-arbitrary -any,
+        http-client -any,
+        http-client-tls -any,
+        iohk-monitoring -any,
+        lens -any,
+        lobemo-backend-ekg -any,
+        memory -any,
+        monad-logger -any,
+        mtl -any,
+        network-mux -any,
+        openapi3 -any,
+        optparse-applicative -any,
+        ouroboros-network -any,
+        ouroboros-network-framework -any,
+        playground-common -any,
+        plutus-ledger-api -any,
+        prettyprinter >=1.1.0.1,
+        purescript-bridge -any,
+        quickcheck-instances -any,
+        row-types -any,
+        servant -any,
+        servant-client -any,
+        servant-openapi3,
+        servant-options -any,
+        servant-purescript -any,
+        servant-server -any,
+        servant-swagger-ui,
+        servant-websockets -any,
+        sqlite-simple -any,
+        stm -any,
+        tagged -any,
+        text -any,
+        text-class -any,
+        time -any,
+        time-units -any,
+        transformers -any,
+        unordered-containers -any,
+        uuid -any,
+        wai -any,
+        wai-cors -any,
+        warp -any,
+        websockets -any,
+        Win32-network -any,
+        yaml -any,
+
 executable plutus-pab-setup
     main-is:          Main.hs
     hs-source-dirs:   app
@@ -84,6 +167,7 @@ executable plutus-pab-setup
         plutus-contract -any,
         plutus-ledger -any,
         plutus-pab -any,
+        plutus-pab-psgenerator -any,
         plutus-use-cases -any,
         prettyprinter         >=1.1.0.1,
         purescript-bridge -any,
@@ -126,6 +210,7 @@ executable plutus-pab-examples
         , plutus-ledger
         , plutus-ledger-constraints
         , plutus-pab
+        , plutus-pab-psgenerator
         , plutus-use-cases
         , prettyprinter
         , purescript-bridge
@@ -206,6 +291,7 @@ executable plutus-pab-local-cluster
         , lens
         , prettyprinter
         , playground-common
+        , plutus-pab-psgenerator
         , plutus-ledger
         , plutus-ledger-api
         , plutus-ledger-constraints
@@ -254,6 +340,7 @@ executable plutus-pab-test-psgenerator
         mtl -any,
         plutus-contract -any,
         plutus-pab,
+        plutus-pab-psgenerator -any,
         plutus-use-cases -any,
         plutus-ledger -any,
         plutus-ledger-constraints -any,
@@ -360,6 +447,7 @@ test-suite plutus-pab-test-full
         plutus-chain-index-core -any,
         plutus-contract -any,
         plutus-pab,
+        plutus-pab-psgenerator,
         plutus-use-cases -any,
         plutus-ledger -any,
         plutus-ledger-constraints -any,
@@ -422,6 +510,7 @@ test-suite plutus-pab-test-full-long-running
         mtl -any,
         plutus-contract -any,
         plutus-pab,
+        plutus-pab-psgenerator -any,
         plutus-use-cases -any,
         plutus-ledger -any,
         plutus-ledger-constraints -any,
